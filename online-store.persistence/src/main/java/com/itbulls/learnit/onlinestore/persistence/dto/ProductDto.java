@@ -2,14 +2,42 @@ package com.itbulls.learnit.onlinestore.persistence.dto;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
+
+@Entity(name = "product")
 public class ProductDto {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(name = "product_name")
 	private String productName;
+
+	@Column(name = "price")
 	private BigDecimal price;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "category_id")
 	private CategoryDto categoryDto;
+	
+	@Column(name = "img_name")
 	private String imgName;
+	
+	@Column(name = "description")
 	private String description;
+	
+	@Column(name = "guid")
 	private String guid;
 	
 	public int getId() {

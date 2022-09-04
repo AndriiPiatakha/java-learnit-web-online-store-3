@@ -8,8 +8,7 @@ import com.itbulls.learnit.onlinestore.core.CoreConfigurations;
 import com.itbulls.learnit.onlinestore.core.facades.PurchaseFacade;
 import com.itbulls.learnit.onlinestore.core.facades.UserFacade;
 import com.itbulls.learnit.onlinestore.persistence.dao.PurchaseDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcPurchaseDao;
-import com.itbulls.learnit.onlinestore.persistence.dto.PurchaseDto;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaPurchaseDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.PurchaseDtoToPurchaseConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.Product;
 import com.itbulls.learnit.onlinestore.persistence.entities.Purchase;
@@ -21,7 +20,7 @@ import com.itbulls.learnit.onlinestore.persistence.entities.impl.DefaultPurchase
 public class DefaultPurchaseFacade implements PurchaseFacade {
 	
 	private static DefaultPurchaseFacade instance;
-	private PurchaseDao purchaseDao = new MySqlJdbcPurchaseDao();
+	private PurchaseDao purchaseDao = new JpaPurchaseDao();
 	private PurchaseDtoToPurchaseConverter purchaseConverter = new PurchaseDtoToPurchaseConverter();
 	private UserFacade userFacade = DefaultUserFacade.getInstance();
 	

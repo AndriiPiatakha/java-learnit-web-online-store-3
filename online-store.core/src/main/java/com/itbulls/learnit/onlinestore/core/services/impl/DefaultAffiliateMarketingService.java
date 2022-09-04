@@ -4,13 +4,13 @@ import java.util.Random;
 
 import com.itbulls.learnit.onlinestore.core.services.AffiliateMarketingService;
 import com.itbulls.learnit.onlinestore.persistence.dao.UserDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcUserDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaUserDao;
 
 public class DefaultAffiliateMarketingService implements AffiliateMarketingService {
 
 	private static final int MAX_CHARS_IN_PARTNER_CODE = 6;
 	
-	private UserDao userDao = new MySqlJdbcUserDao();
+	private UserDao userDao = new JpaUserDao();
 
 	@Override
 	public String generateUniquePartnerCode() {

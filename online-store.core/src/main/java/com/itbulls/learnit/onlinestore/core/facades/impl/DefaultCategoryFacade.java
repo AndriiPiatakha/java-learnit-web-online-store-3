@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.itbulls.learnit.onlinestore.core.facades.CategoryFacade;
 import com.itbulls.learnit.onlinestore.persistence.dao.CategoryDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcCategoryDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaCategoryDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.CategoryDtoToCategoryConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.Category;
 
@@ -12,7 +12,7 @@ public class DefaultCategoryFacade implements CategoryFacade {
 	
 	private static DefaultCategoryFacade instance;
 	
-	private CategoryDao categoryDao = new MySqlJdbcCategoryDao();
+	private CategoryDao categoryDao = new JpaCategoryDao();
 	private CategoryDtoToCategoryConverter categoryConverter = new CategoryDtoToCategoryConverter();
 
 	public static synchronized DefaultCategoryFacade getInstance() {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.itbulls.learnit.onlinestore.core.facades.ProductFacade;
 import com.itbulls.learnit.onlinestore.persistence.dao.ProductDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcProductDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaProductDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.ProductDtoToProductConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.Product;
 
@@ -12,7 +12,7 @@ public class DefaultProductFacade implements ProductFacade {
 	
 	private static DefaultProductFacade instance;
 	
-	private ProductDao productDao = new MySqlJdbcProductDao();
+	private ProductDao productDao = new JpaProductDao();
 	private ProductDtoToProductConverter productConverter = new ProductDtoToProductConverter();
 
 	public static synchronized DefaultProductFacade getInstance() {

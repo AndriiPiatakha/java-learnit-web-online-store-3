@@ -8,14 +8,14 @@ import com.itbulls.learnit.onlinestore.core.facades.UserFacade;
 import com.itbulls.learnit.onlinestore.core.services.AffiliateMarketingService;
 import com.itbulls.learnit.onlinestore.core.services.impl.DefaultAffiliateMarketingService;
 import com.itbulls.learnit.onlinestore.persistence.dao.UserDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcUserDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaUserDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.UserDtoToUserConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.User;
 
 public class DefaultUserFacade implements UserFacade {
 	
 	private static DefaultUserFacade instance;
-	private UserDao userDao = new MySqlJdbcUserDao();
+	private UserDao userDao = new JpaUserDao();
 	private UserDtoToUserConverter userConverter = new UserDtoToUserConverter();
 	private AffiliateMarketingService marketingService = new DefaultAffiliateMarketingService();
 	

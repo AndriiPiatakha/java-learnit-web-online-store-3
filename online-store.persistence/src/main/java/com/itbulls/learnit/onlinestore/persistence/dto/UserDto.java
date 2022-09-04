@@ -1,17 +1,50 @@
 package com.itbulls.learnit.onlinestore.persistence.dto;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.math.BigDecimal;
 
+@Entity(name = "user")
 public class UserDto {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(name = "first_name")
 	private String firstName;
+	
+	@Column(name = "last_name")
 	private String lastName;
+	
+	@Column(name = "email", unique = true)
 	private String email;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_user_role")
 	private RoleDto roleDto;
+	
+	@Column(name = "money")
 	private BigDecimal money;
+	
+	@Column(name = "credit_card")
 	private String creditCard;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "partner_code", unique = true)
 	private String partnerCode;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "referrer_user_id")
 	private UserDto referrerUser;
 	public Integer getId() {
 		return id;

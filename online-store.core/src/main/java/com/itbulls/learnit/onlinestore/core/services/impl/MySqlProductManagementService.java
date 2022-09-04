@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.itbulls.learnit.onlinestore.core.services.ProductManagementService;
 import com.itbulls.learnit.onlinestore.persistence.dao.ProductDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcProductDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaProductDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.ProductDto;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.ProductDtoToProductConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.Product;
@@ -15,7 +15,7 @@ public class MySqlProductManagementService implements ProductManagementService {
 	private ProductDtoToProductConverter productConverter;
 	
 	{
-		productDao = new MySqlJdbcProductDao();
+		productDao = new JpaProductDao();
 		productConverter = new ProductDtoToProductConverter();
 	}
 	

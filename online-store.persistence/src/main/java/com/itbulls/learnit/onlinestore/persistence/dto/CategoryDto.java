@@ -1,9 +1,22 @@
 package com.itbulls.learnit.onlinestore.persistence.dto;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "category")
 public class CategoryDto {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(name = "category_name")
 	private String categoryName;
+	
+	@Column(name = "img_name")
 	private String imgName;
 	
 	public String getCategoryName() {

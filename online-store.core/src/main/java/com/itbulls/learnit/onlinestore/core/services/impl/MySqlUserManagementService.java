@@ -6,7 +6,7 @@ import com.itbulls.learnit.onlinestore.core.mail.MailSender;
 import com.itbulls.learnit.onlinestore.core.mail.impl.DefaultMailSender;
 import com.itbulls.learnit.onlinestore.core.services.UserManagementService;
 import com.itbulls.learnit.onlinestore.persistence.dao.UserDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcUserDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaUserDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.UserDto;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.UserDtoToUserConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.User;
@@ -22,7 +22,7 @@ public class MySqlUserManagementService implements UserManagementService {
 	private MailSender mailSender;
 
 	{
-		userDao = new MySqlJdbcUserDao();
+		userDao = new JpaUserDao();
 		userConverter = new UserDtoToUserConverter();
 		mailSender = DefaultMailSender.getInstance();
 	}

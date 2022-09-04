@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.itbulls.learnit.onlinestore.core.services.PurchaseManagementService;
 import com.itbulls.learnit.onlinestore.persistence.dao.PurchaseDao;
-import com.itbulls.learnit.onlinestore.persistence.dao.impl.MySqlJdbcPurchaseDao;
+import com.itbulls.learnit.onlinestore.persistence.dao.impl.JpaPurchaseDao;
 import com.itbulls.learnit.onlinestore.persistence.dto.PurchaseDto;
 import com.itbulls.learnit.onlinestore.persistence.dto.converters.PurchaseDtoToPurchaseConverter;
 import com.itbulls.learnit.onlinestore.persistence.entities.Purchase;
@@ -15,7 +15,7 @@ public class MySqlPurchaseManagementService implements PurchaseManagementService
 	private PurchaseDtoToPurchaseConverter purchaseConverter;
 	
 	{
-		purchaseDao = new MySqlJdbcPurchaseDao();
+		purchaseDao = new JpaPurchaseDao();
 		purchaseConverter = new PurchaseDtoToPurchaseConverter();
 	}
 
